@@ -17,11 +17,13 @@ services:
   # Create container for frontend app
   frontend:
     image: frontend-react
+    tty: true
     build:
       context: ./frontend
       dockerfile: Dockerfile
     container_name: "frontend-react"
     volumes:
-        - ./frontend:/app
+        - ./frontend/src:/app/src
+        - ./frontend/public:/app/public
     ports:
       - "3000:3000"
